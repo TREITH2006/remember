@@ -1,0 +1,64 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Settings for the Remember local productivity app.">
+  <title>Remember | Settings</title>
+  <link rel="stylesheet" href="css/products.css">
+  <link rel="stylesheet" href="css/app.css">
+  <script src="js/app-utils.js" defer></script>
+  <script src="js/settings.js" defer></script>
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar" aria-label="Primary navigation">
+      <a class="brand" href="dashboard.html" aria-label="Remember dashboard"><span class="brand-mark">R</span><span>Remember</span></a>
+      <nav class="nav-list">
+        <a class="nav-link" href="dashboard.html">Dashboard</a>
+        <a class="nav-link" href="ideas.html">Ideas</a>
+        <a class="nav-link" href="products.html">Products</a>
+        <a class="nav-link is-active" href="settings.html" aria-current="page">Settings</a>
+        <a class="nav-link" href="about.html">About</a>
+      </nav>
+    </aside>
+    <main class="ideas-page" aria-labelledby="settingsTitle">
+      <header class="topbar">
+        <div><p class="eyebrow">Remember</p><h1 id="settingsTitle">Settings</h1><p class="page-subtitle">Manage your local profile, data, backup, and app information.</p></div>
+        <div class="user-menu"><span class="user-pill" id="menuUserName">User</span><button class="logout-button" id="logoutButton" type="button">Logout</button></div>
+      </header>
+
+      <section class="ideas-section" aria-labelledby="settingsSectionsTitle">
+        <div class="section-heading"><p class="eyebrow">Version 1.0</p><h2 id="settingsSectionsTitle">Application Controls</h2></div>
+        <div class="settings-grid">
+          <article class="settings-panel">
+            <h3>User Profile</h3>
+            <p>Change the local display name used across Remember.</p>
+            <form id="profileForm" class="idea-form">
+              <div class="field-group"><label for="profileName">User Name</label><input id="profileName" type="text" minlength="2" maxlength="40" required><p class="field-message" id="profileMessage" aria-live="polite"></p></div>
+              <button class="primary-button" type="submit">Save Username</button>
+            </form>
+          </article>
+          <article class="settings-panel">
+            <h3>Backup & Restore</h3>
+            <p>Export all local data or import a valid Remember backup file.</p>
+            <div class="modal-actions"><button class="primary-button" id="exportButton" type="button">Export Backup</button></div>
+            <div class="field-group"><label for="importFile">Import Backup</label><input class="file-input" id="importFile" type="file" accept="application/json"><p class="field-message" id="importMessage" aria-live="polite"></p></div>
+          </article>
+          <article class="settings-panel">
+            <h3>Clear Ideas</h3><p>Remove every saved idea from this device.</p><button class="danger-button" id="clearIdeasButton" type="button">Clear All Ideas</button>
+          </article>
+          <article class="settings-panel">
+            <h3>Clear Products</h3><p>Remove every saved product from this device.</p><button class="danger-button" id="clearProductsButton" type="button">Clear All Products</button>
+          </article>
+          <article class="settings-panel">
+            <h3>Reset Application</h3><p>Remove username, ideas, products, and recent activity.</p><button class="danger-button" id="resetButton" type="button">Reset Application</button>
+          </article>
+          <article class="settings-panel">
+            <h3>Theme Information</h3><p>Premium dark charcoal theme with black cards, white typography, gray accents, and high-contrast controls.</p><h3>App Version</h3><p>Remember 1.0.0</p><h3>About Remember</h3><p>A local-first productivity app for saving ideas and products without cloud storage.</p></article>
+        </div>
+      </section>
+    </main>
+  </div>
+</body>
+</html>

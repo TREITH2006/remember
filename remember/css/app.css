@@ -1,0 +1,97 @@
+.app-toast {
+  position: fixed;
+  right: 24px;
+  bottom: 24px;
+  z-index: 40;
+  max-width: min(340px, calc(100vw - 36px));
+  margin: 0;
+  padding: 14px 16px;
+  pointer-events: none;
+  opacity: 0;
+  transform: translateY(10px);
+  background: var(--color-text);
+  color: #111111;
+  border-radius: 16px;
+  font-weight: 800;
+  box-shadow: 0 18px 44px rgba(0, 0, 0, 0.38);
+  transition: opacity var(--transition), transform var(--transition);
+}
+
+.app-toast.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.inline-list {
+  display: grid;
+  gap: 12px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.inline-list li,
+.result-card {
+  padding: 16px;
+  background: var(--color-card-raised);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-panel);
+}
+
+.inline-list a,
+.result-card a {
+  color: var(--color-text);
+  font-weight: 800;
+  text-decoration: none;
+}
+
+.inline-list p,
+.result-card p {
+  margin: 6px 0 0;
+  color: var(--color-text-soft);
+}
+
+.results-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 16px;
+}
+
+mark {
+  background: #ffffff;
+  color: #111111;
+  border-radius: 6px;
+  padding: 0 3px;
+}
+
+.settings-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 16px;
+}
+
+.settings-panel {
+  padding: 24px;
+  background: var(--color-card-raised);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-panel);
+}
+
+.settings-panel h3 {
+  margin: 0 0 10px;
+}
+
+.settings-panel p {
+  color: var(--color-text-soft);
+}
+
+.file-input {
+  width: 100%;
+}
+
+@media (max-width: 720px) {
+  .results-grid,
+  .settings-grid {
+    grid-template-columns: 1fr;
+  }
+}

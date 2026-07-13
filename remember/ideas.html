@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Manage locally stored ideas in Remember.">
+  <title>Remember | Ideas</title>
+  <link rel="stylesheet" href="css/ideas.css">
+  <link rel="stylesheet" href="css/app.css">
+  <script src="js/app-utils.js" defer></script>
+  <script src="js/ideas.js" defer></script>
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar" aria-label="Primary navigation">
+      <a class="brand" href="dashboard.html" aria-label="Remember dashboard">
+        <span class="brand-mark">R</span>
+        <span>Remember</span>
+      </a>
+
+      <nav class="nav-list">
+        <a class="nav-link" href="dashboard.html">Dashboard</a>
+        <a class="nav-link is-active" href="ideas.html" aria-current="page">Ideas</a>
+        <a class="nav-link" href="products.html">Products</a>
+        <a class="nav-link" href="settings.html">Settings</a>
+        <a class="nav-link" href="about.html">About</a>
+      </nav>
+    </aside>
+
+    <main class="ideas-page" aria-labelledby="ideasTitle">
+      <header class="topbar">
+        <div>
+          <p class="eyebrow">Remember</p>
+          <h1 id="ideasTitle">Ideas</h1>
+          <p class="page-subtitle">Store every thought before you forget it.</p>
+        </div>
+
+        <div class="user-menu" aria-label="User menu">
+          <span class="user-pill" id="menuUserName">User</span>
+          <button class="logout-button" id="logoutButton" type="button">Logout</button>
+        </div>
+      </header>
+
+      <section class="overview-card" aria-label="Ideas overview">
+        <div>
+          <p class="eyebrow">Saved ideas</p>
+          <p class="saved-count"><span id="savedIdeasCount">0</span> Saved</p>
+        </div>
+        <button class="primary-button add-idea-button" id="addIdeaButton" type="button">+ Add New Idea</button>
+      </section>
+
+      <section class="stats-grid" aria-label="Idea statistics">
+        <article class="stat-card">
+          <p>Total Ideas</p>
+          <strong id="totalIdeas">0</strong>
+        </article>
+        <article class="stat-card">
+          <p>Today's Ideas</p>
+          <strong id="todaysIdeas">0</strong>
+        </article>
+        <article class="stat-card">
+          <p>Last Updated</p>
+          <strong class="stat-date" id="lastUpdated">None</strong>
+        </article>
+      </section>
+
+      <section class="controls-card" aria-label="Search and sort ideas">
+        <label class="sr-only" for="ideaSearch">Search Ideas</label>
+        <input
+          class="search-input"
+          type="search"
+          id="ideaSearch"
+          placeholder="Search Ideas..."
+          autocomplete="off"
+        >
+
+        <label class="sr-only" for="sortIdeas">Sort Ideas</label>
+        <select class="sort-select" id="sortIdeas" aria-label="Sort ideas">
+          <option value="newest">Newest</option>
+          <option value="oldest">Oldest</option>
+          <option value="az">A-Z</option>
+          <option value="za">Z-A</option>
+        </select>
+      </section>
+
+      <section class="ideas-section" aria-labelledby="ideasListTitle">
+        <div class="section-heading">
+          <p class="eyebrow">Library</p>
+          <h2 id="ideasListTitle">All Ideas</h2>
+        </div>
+
+        <div class="ideas-grid" id="ideasGrid" aria-live="polite"></div>
+
+        <div class="empty-state" id="emptyState" hidden>
+          <div class="empty-icon" aria-hidden="true">+</div>
+          <h2>No Ideas Yet</h2>
+          <p>Click Add New Idea to save your first idea.</p>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <div class="modal-backdrop" id="ideaModal" role="dialog" aria-modal="true" aria-labelledby="ideaModalTitle" hidden>
+    <div class="modal-panel" role="document">
+      <form class="idea-form" id="ideaForm" novalidate>
+        <div class="modal-header">
+          <div>
+            <p class="eyebrow">Idea</p>
+            <h2 id="ideaModalTitle">Add New Idea</h2>
+          </div>
+          <button class="icon-button" type="button" data-close-modal aria-label="Close modal">×</button>
+        </div>
+
+        <input type="hidden" id="ideaId">
+
+        <div class="field-group">
+          <label for="ideaTitle">Title</label>
+          <input type="text" id="ideaTitle" name="ideaTitle" maxlength="100" autocomplete="off" required>
+          <p class="field-message" id="titleMessage" aria-live="polite"></p>
+        </div>
+
+        <div class="field-group">
+          <label for="ideaDescription">Description</label>
+          <textarea id="ideaDescription" name="ideaDescription" maxlength="5000" required></textarea>
+          <p class="field-message" id="descriptionMessage" aria-live="polite"></p>
+        </div>
+
+        <div class="field-group">
+          <label for="ideaDate">Date</label>
+          <input type="date" id="ideaDate" name="ideaDate" required>
+          <p class="field-message" id="dateMessage" aria-live="polite"></p>
+        </div>
+
+        <div class="modal-actions">
+          <button class="ghost-button" type="button" data-close-modal>Cancel</button>
+          <button class="primary-button" type="submit">Save</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <div class="modal-backdrop" id="viewModal" role="dialog" aria-modal="true" aria-labelledby="viewModalTitle" hidden>
+    <div class="modal-panel view-panel" role="document">
+      <div class="modal-header">
+        <div>
+          <p class="eyebrow">View idea</p>
+          <h2 id="viewModalTitle">Idea</h2>
+        </div>
+        <button class="icon-button" type="button" data-close-view aria-label="Close view modal">×</button>
+      </div>
+      <p class="view-meta" id="viewMeta"></p>
+      <p class="view-description" id="viewDescription"></p>
+      <div class="modal-actions">
+        <button class="primary-button" type="button" data-close-view>Close</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal-backdrop" id="deleteModal" role="dialog" aria-modal="true" aria-labelledby="deleteModalTitle" hidden>
+    <div class="modal-panel delete-panel" role="document">
+      <div class="modal-header">
+        <div>
+          <p class="eyebrow">Confirm delete</p>
+          <h2 id="deleteModalTitle">Delete Idea</h2>
+        </div>
+        <button class="icon-button" type="button" data-cancel-delete aria-label="Close delete modal">×</button>
+      </div>
+      <p class="delete-copy">Are you sure you want to delete this idea?</p>
+      <div class="modal-actions">
+        <button class="ghost-button" type="button" data-cancel-delete>Cancel</button>
+        <button class="danger-button" id="confirmDeleteButton" type="button">Delete</button>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

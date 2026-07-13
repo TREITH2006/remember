@@ -1,0 +1,66 @@
+@import url("ideas.css");
+
+.products-controls {
+  grid-template-columns: minmax(240px, 1fr) minmax(150px, 190px) minmax(170px, 220px);
+}
+
+.product-website {
+  display: inline-flex;
+  width: fit-content;
+  min-height: 34px;
+  align-items: center;
+  padding: 0 12px;
+  margin-bottom: 14px;
+  background: #ffffff;
+  color: #111111;
+  border-radius: 999px;
+  font-size: 0.86rem;
+  font-weight: 800;
+}
+
+.field-hint,
+.optional-label {
+  margin: 0;
+  color: var(--color-text-soft);
+  font-size: 0.88rem;
+}
+
+.product-detail-list {
+  display: grid;
+  gap: 14px;
+}
+
+.product-detail-item {
+  padding: 16px;
+  background: var(--color-card-raised);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-panel);
+}
+
+.product-detail-item span {
+  display: block;
+  margin-bottom: 6px;
+  color: var(--color-text-soft);
+  font-size: 0.82rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.product-detail-item p,
+.product-detail-item a {
+  margin: 0;
+  color: var(--color-text-muted);
+  overflow-wrap: anywhere;
+}
+
+.product-detail-item a {
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+@media (max-width: 900px) {
+  .products-controls {
+    grid-template-columns: 1fr;
+  }
+}

@@ -1,0 +1,42 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="About the Remember local productivity app.">
+  <title>Remember | About</title>
+  <link rel="stylesheet" href="css/products.css">
+  <link rel="stylesheet" href="css/app.css">
+  <script src="js/app-utils.js" defer></script>
+  <script src="js/about.js" defer></script>
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar" aria-label="Primary navigation">
+      <a class="brand" href="dashboard.html" aria-label="Remember dashboard"><span class="brand-mark">R</span><span>Remember</span></a>
+      <nav class="nav-list">
+        <a class="nav-link" href="dashboard.html">Dashboard</a>
+        <a class="nav-link" href="ideas.html">Ideas</a>
+        <a class="nav-link" href="products.html">Products</a>
+        <a class="nav-link" href="settings.html">Settings</a>
+        <a class="nav-link is-active" href="about.html" aria-current="page">About</a>
+      </nav>
+    </aside>
+    <main class="ideas-page" aria-labelledby="aboutTitle">
+      <header class="topbar">
+        <div><p class="eyebrow">Remember</p><h1 id="aboutTitle">About</h1><p class="page-subtitle">Capture every idea. Remember every product.</p></div>
+        <div class="user-menu"><span class="user-pill" id="menuUserName">User</span><button class="logout-button" id="logoutButton" type="button">Logout</button></div>
+      </header>
+      <section class="ideas-section">
+        <div class="settings-grid">
+          <article class="settings-panel"><h3>Purpose</h3><p>Remember is a local-first productivity app for saving thoughts, product links, reminders, and notes in one focused workspace.</p></article>
+          <article class="settings-panel"><h3>Local Storage Privacy</h3><p>Your data stays in this browser on this device. Remember has no backend, no cloud sync, no tracking, and no advertisements.</p></article>
+          <article class="settings-panel"><h3>Features</h3><p>Login by name, dashboard insights, global search, idea management, product management, backup and restore, settings, and recent activity.</p></article>
+          <article class="settings-panel"><h3>Version</h3><p>Remember 1.0.0</p></article>
+          <article class="settings-panel"><h3>Future Roadmap</h3><p>Planned improvements include optional tags, richer filters, import previews, archive views, and more keyboard shortcuts while staying local-first.</p></article>
+        </div>
+      </section>
+    </main>
+  </div>
+</body>
+</html>

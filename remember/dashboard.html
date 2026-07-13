@@ -1,0 +1,109 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Remember dashboard for locally saved ideas and products.">
+  <title>Remember | Dashboard</title>
+  <link rel="stylesheet" href="css/dashboard.css">
+  <link rel="stylesheet" href="css/app.css">
+  <script src="js/app-utils.js" defer></script>
+  <script src="js/dashboard.js" defer></script>
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar" aria-label="Primary navigation">
+      <a class="brand" href="dashboard.html" aria-label="Remember dashboard">
+        <span class="brand-mark">R</span>
+        <span>Remember</span>
+      </a>
+      <nav class="nav-list">
+        <a class="nav-link is-active" href="dashboard.html" aria-current="page">Dashboard</a>
+        <a class="nav-link" href="ideas.html">Ideas</a>
+        <a class="nav-link" href="products.html">Products</a>
+        <a class="nav-link" href="settings.html">Settings</a>
+        <a class="nav-link" href="about.html">About</a>
+      </nav>
+    </aside>
+
+    <main class="dashboard" aria-labelledby="dashboardTitle">
+      <header class="topbar">
+        <div>
+          <p class="eyebrow">Welcome back,</p>
+          <p class="topbar-name" id="topbarUserName">User</p>
+        </div>
+        <div class="user-menu" aria-label="User menu">
+          <span class="user-pill" id="menuUserName">User</span>
+          <button class="logout-button" id="logoutButton" type="button">Logout</button>
+        </div>
+      </header>
+
+      <section class="hero-card" aria-labelledby="dashboardTitle">
+        <p class="eyebrow">Remember</p>
+        <h1 id="dashboardTitle">Welcome back, <span data-user-name>User</span></h1>
+        <p class="hero-description">Capture every idea. Remember every product. Everything stays securely on your own device using Local Storage.</p>
+        <ul class="privacy-list" aria-label="Privacy promises">
+          <li>No cloud.</li>
+          <li>No tracking.</li>
+          <li>No advertisements.</li>
+        </ul>
+      </section>
+
+      <section class="toolbar" aria-label="Global search and quick actions">
+        <label class="search-label" for="dashboardSearch">Global Search</label>
+        <input class="search-input" type="search" id="dashboardSearch" placeholder="Search ideas or products..." autocomplete="off">
+        <div class="quick-actions" aria-label="Quick actions">
+          <a class="secondary-button action-link" href="ideas.html">+ Add Idea</a>
+          <a class="secondary-button action-link" href="products.html">+ Add Product</a>
+        </div>
+      </section>
+
+      <section class="section-block" id="globalSearchSection" aria-labelledby="globalSearchTitle" hidden>
+        <div class="section-heading">
+          <p class="eyebrow">Global Search</p>
+          <h2 id="globalSearchTitle">Search Results</h2>
+        </div>
+        <div class="results-grid" id="globalSearchResults" aria-live="polite"></div>
+        <p class="empty-state" id="globalSearchEmpty" hidden>No Results Found</p>
+      </section>
+
+      <section class="section-block" aria-labelledby="statsTitle">
+        <div class="section-heading">
+          <p class="eyebrow">Live Statistics</p>
+          <h2 id="statsTitle">Your local library</h2>
+        </div>
+        <div class="stats-grid dashboard-stats-grid">
+          <article class="stat-card"><p>Total Ideas</p><strong id="ideasCount">0</strong></article>
+          <article class="stat-card"><p>Total Products</p><strong id="productsCount">0</strong></article>
+          <article class="stat-card"><p>Recent Activity</p><strong id="recentCount">0</strong></article>
+          <article class="stat-card"><p>Last Updated</p><strong class="stat-date" id="lastUpdated">None</strong></article>
+        </div>
+      </section>
+
+      <section class="section-block" aria-labelledby="latestIdeasTitle">
+        <div class="section-heading">
+          <p class="eyebrow">Latest</p>
+          <h2 id="latestIdeasTitle">Latest 5 Ideas</h2>
+        </div>
+        <ul class="inline-list" id="latestIdeasList"></ul>
+      </section>
+
+      <section class="section-block" aria-labelledby="latestProductsTitle">
+        <div class="section-heading">
+          <p class="eyebrow">Latest</p>
+          <h2 id="latestProductsTitle">Latest 5 Products</h2>
+        </div>
+        <ul class="inline-list" id="latestProductsList"></ul>
+      </section>
+
+      <section class="section-block activity-card" aria-labelledby="activityTitle">
+        <div class="section-heading">
+          <p class="eyebrow">Activity</p>
+          <h2 id="activityTitle">Recent Activity</h2>
+        </div>
+        <ul class="inline-list" id="recentActivityList"></ul>
+      </section>
+    </main>
+  </div>
+</body>
+</html>
